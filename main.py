@@ -1,5 +1,6 @@
 from paquete.dibujos import *
 from paquete.logica import *
+from paquete.ranking import *
 
 jugando = True
 
@@ -19,15 +20,36 @@ while jugando:
                 mostrar_dibujo(dibujo_jugador)
                 mostrar_pistas_por_fila()
                 mostrar_pistas_por_columna()
+
                 fila = int(input("Ingresa una fila: "))
+                while fila > 4:
+                    fila = int(input("Ingresa una fila: ")) 
+
                 columna = int(input("Ingresa una columna: "))
-                valor_ingresado = comprobar(dibujo, fila, columna)
-                if valor_ingresado:
+                while columna > 4:
+                    columna = int(input("Ingresa una columna: "))
+
+                posicion_ingresada = comprobar(dibujo, fila, columna)
+
+                if posicion_ingresada:
+                    if dibujo_jugador[fila][columna] == 1:
+                        print("Esta posición ya está pintada")
                     dibujo_jugador[fila][columna] = 1
+                    if gano(dibujo, dibujo_jugador):
+                        print("Felicidades! Ganaste")
+                        print("Se cargará al ranking tu puntaje")
+                        cargar_ranking(nombre_jugador)
+                        limpiar_dibujo(dibujo_jugador)
+                        juego_activo = False
                 else:
-                    #restar_vida()
-                    pass
+                    if total_vidas == 1:
+                        print("Te quedaste sin vidas!")
+                        limpiar_dibujo(dibujo_jugador)
+                        juego_activo = False
+                    else:
+                        total_vidas = restar_vida(total_vidas)
+                        print(f"Te quedan {total_vidas} vidas")
         case 2:
             pass
         case 3:
-            pass
+            jugando = False
