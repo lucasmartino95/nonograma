@@ -50,6 +50,6 @@ while jugando:
                         total_vidas = restar_vida(total_vidas)
                         print(f"Te quedan {total_vidas} vidas")
         case 2:
-            pass
+            leer_ranking()
         case 3:
             jugando = False
