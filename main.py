@@ -1,6 +1,7 @@
 from paquete.dibujos import *
 from paquete.logica import *
 from paquete.ranking import *
+import time
 
 jugando = True
 
@@ -16,6 +17,7 @@ while jugando:
         case 1:
             juego_activo = True
             nombre_jugador = input("Ingresa tu nombre: ")
+            inicio = time.time()
             while juego_activo:
                 mostrar_dibujo(dibujo_jugador)
                 mostrar_pistas_por_fila()
@@ -38,7 +40,10 @@ while jugando:
                     if gano(dibujo, dibujo_jugador):
                         print("Felicidades! Ganaste")
                         print("Se cargará al ranking tu puntaje")
-                        cargar_ranking(nombre_jugador)
+                        fin = time.time()
+                        tiempo_final = fin - inicio
+                        tiempo_final = round(tiempo_final, 2)
+                        cargar_ranking(nombre_jugador, tiempo_final)
                         limpiar_dibujo(dibujo_jugador)
                         juego_activo = False
                 else:
@@ -53,4 +58,3 @@ while jugando:
             leer_ranking()
         case 3:
             jugando = False
-
