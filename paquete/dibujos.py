@@ -23,13 +23,7 @@ dibujo_tres = [
     [0, 0, 0, 1, 0],
     [0, 0, 0, 0, 1]
 ]
-dibujo_cuatro = [
-    [1, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0]
-]
+
 dibujo_jugador = [
     [0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0],
@@ -38,8 +32,7 @@ dibujo_jugador = [
     [0, 0, 0, 0, 0]
 ]
 
-#dibujos = [dibujo_uno, dibujo_dos, dibujo_tres]
-dibujos = [dibujo_cuatro]
+dibujos = [dibujo_uno, dibujo_dos, dibujo_tres]
 
 dibujo = random.choice(dibujos)
 

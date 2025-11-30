@@ -6,6 +6,7 @@ def cargar_ranking(nombre: str,
 
 
 def leer_ranking() -> None:
+
     ranking = []
     with open("ranking.csv", "r") as archivo:
         ranking.append(archivo.readlines())
@@ -15,7 +16,6 @@ def leer_ranking() -> None:
         for j in range(len(ranking[i])):
             lista.append(ranking[i][j].strip())
 
-
-    print("Los 3 mejores jugadores")
-    for i in range(3):
+    print("Los mejores jugadores")
+    for i in range(len(lista)):
         print(lista[i], end="\n")
