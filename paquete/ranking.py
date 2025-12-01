@@ -2,7 +2,7 @@ def cargar_ranking(nombre: str,
                    tiempo_final: float) -> None:
 
     with open("ranking.csv", "a") as archivo:
-        archivo.write(f"{nombre}, {tiempo_final}\n")
+        archivo.write(f"{nombre}, {tiempo_final}s\n")
 
 
 def leer_ranking() -> None:
