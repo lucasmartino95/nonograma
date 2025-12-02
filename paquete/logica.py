@@ -23,6 +23,9 @@ def gano(dibujo: list,
     contador = 0
     contador_jugador = 0
     
+
+    # Modularizar los búcles for, creando una función
+    # que recorra una matriz
     for i in range(len(dibujo)):
         for j in range(len(dibujo[i])):
             if dibujo[i][j] == 1:

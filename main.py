@@ -23,6 +23,7 @@ while jugando:
                 mostrar_pistas_por_fila()
                 mostrar_pistas_por_columna()
 
+                # Modularizar creando una función para los búcles while
                 fila = int(input("Ingresa una fila: "))
                 while fila > 4:
                     fila = int(input("Ingresa una fila: ")) 
