@@ -1,6 +1,7 @@
 from paquete.dibujos import *
 from paquete.logica import *
 from paquete.ranking import *
+from paquete.complementarias import *
 import time
 
 jugando = True
@@ -23,14 +24,11 @@ while jugando:
                 mostrar_pistas_por_fila()
                 mostrar_pistas_por_columna()
 
-                # Modularizar creando una función para los búcles while
                 fila = int(input("Ingresa una fila: "))
-                while fila > 4:
-                    fila = int(input("Ingresa una fila: ")) 
+                fila = validar_ingreso(fila, "Ingresa una fila: ")
 
                 columna = int(input("Ingresa una columna: "))
-                while columna > 4:
-                    columna = int(input("Ingresa una columna: "))
+                columna = validar_ingreso(columna, "Ingresa una columna: ")
 
                 posicion_ingresada = comprobar(dibujo, fila, columna)
 
@@ -38,9 +36,8 @@ while jugando:
                     if dibujo_jugador[fila][columna] == 1:
                         print("Esta posición ya está pintada")
                     dibujo_jugador[fila][columna] = 1
-                    if gano(dibujo, dibujo_jugador):
-                        print("Felicidades! Ganaste")
-                        print("Se cargará al ranking tu puntaje")
+                    if gano(dibujo, dibujo_jugador, "Felicidades! Ganaste.\n" \
+                    "Se cargará al ranking tu puntaje"):
                         fin = time.time()
                         tiempo_final = fin - inicio
                         tiempo_final = round(tiempo_final, 2)

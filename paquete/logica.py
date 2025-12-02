@@ -17,28 +17,32 @@ def restar_vida(total_vidas: int) -> None:
     return total_vidas
 
 
-# Agregar parámetro "mensaje"
+def recorrer_matriz(matriz: list) -> None:
+
+    contador = 0
+
+    for i in range(len(matriz)):
+        for j in range(len(matriz[i])):
+            if matriz[i][j] == 1:
+                contador += 1
+
+    return contador            
+
+
 def gano(dibujo: list,
-         dibujo_jugador: list) -> bool:
+         dibujo_jugador: list,
+         mensaje: str) -> bool:
     
     contador = 0
     contador_jugador = 0
     
 
-    # Modularizar los búcles for, creando una función
-    # que recorra una matriz
-    for i in range(len(dibujo)):
-        for j in range(len(dibujo[i])):
-            if dibujo[i][j] == 1:
-                contador += 1
+    contador = recorrer_matriz(dibujo)
 
-
-    for i in range(len(dibujo_jugador)):
-        for j in range(len(dibujo_jugador[i])):
-            if dibujo_jugador[i][j] == 1:
-                contador_jugador += 1
+    contador_jugador = recorrer_matriz(dibujo_jugador)
                 
     if contador == contador_jugador:
+        print(mensaje)
         return True
     else:
         return False
