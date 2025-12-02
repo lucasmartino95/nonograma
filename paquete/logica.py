@@ -17,6 +17,7 @@ def restar_vida(total_vidas: int) -> None:
     return total_vidas
 
 
+# Agregar parámetro "mensaje"
 def gano(dibujo: list,
          dibujo_jugador: list) -> bool:
     
